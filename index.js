@@ -209,7 +209,8 @@ class Calculator{
         })
         const calcElem = document.createElement("div")
         calcElem.className = "calculation"
-        calcElem.innerHTML = `<span class="calc-text">${this.state.calculations.peek().input + "=" + this.state.calculations.peek().output}</span>
+        calcElem.innerHTML = `<span class="calc-text">${this.state.calculations.peek().input}</span>
+                                <span class="calc-text">${"=" + this.state.calculations.peek().output}</span>
                                 <button
                                     id=${this.state.calculations.peek().output}
                                     class="use-out-but"
