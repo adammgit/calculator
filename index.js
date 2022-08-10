@@ -175,12 +175,17 @@ class Calculator{
         if (!this.state.inputValid || !this.state.currentInput) return
 
         /* set state output variable to result of evaluation */
-        this.state.output = this.roundToTwo(math.evaluate(this.state.currentInput))
+        let out = math.evaluate(this.state.currentInput)
+        if (Number.isNaN(out) || !isFinite(out)){
+            this.state.output = "invalid"
+        } else {
+            this.state.output = this.roundToThree(out)
+        }
         this.appendCalculation()
     }
 
-    roundToTwo(num) {
-        return +(Math.round(num + "e+2") + "e-2");
+    roundToThree(num) {
+        return +(Math.round(num + "e+3") + "e-3");
     }
 
     /* remove calculation history from DOM, reset necessary state values and
