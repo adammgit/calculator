@@ -175,7 +175,7 @@ class Calculator{
         if (!this.state.inputValid || !this.state.currentInput) return
 
         /* set state output variable to result of evaluation */
-        this.state.output = math.evaluate(this.state.currentInput)
+        this.state.output = math.evaluate(this.state.currentInput).toFixed(2)
         this.appendCalculation()
     }
 
