@@ -130,10 +130,6 @@ button {
     color: rgb(163, 0, 0);
 }
 
-/* .undo-button {
-    color: rgb(56, 56, 56);
-} */
-
 .equals-button {
     color: #09a037;
     grid-row: span 2;
