@@ -55,6 +55,7 @@ body {
 input {
     font-size: 2em;
     letter-spacing: 0.2rem;
+    caret-color: black;
 }
 
 .invalid {

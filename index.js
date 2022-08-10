@@ -107,7 +107,7 @@ class Calculator{
                 } else if (op.innerText === "÷"){
                     input.value += "/"
                     this.state.currentInput += "/"
-                    
+
                 /* "+" and "-" stay as they are */
                 } else {
                     input.value += op.innerText
@@ -236,6 +236,7 @@ class Calculator{
     undo() {
         this.state.currentInput = this.state.currentInput.slice(0, this.state.currentInput.length - 1)
         input.value = input.value.slice(0, input.value.length - 1)
+        this.validateInput()
     }
 }
 
