@@ -175,8 +175,12 @@ class Calculator{
         if (!this.state.inputValid || !this.state.currentInput) return
 
         /* set state output variable to result of evaluation */
-        this.state.output = math.evaluate(this.state.currentInput).toFixed(2)
+        this.state.output = this.roundToTwo(math.evaluate(this.state.currentInput))
         this.appendCalculation()
+    }
+
+    roundToTwo(num) {
+        return +(Math.round(num + "e+2") + "e-2");
     }
 
     /* remove calculation history from DOM, reset necessary state values and
