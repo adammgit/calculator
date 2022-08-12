@@ -32,12 +32,27 @@ body {
 }
 
 @media only screen 
-and (min-device-width: 300px) 
-and (max-device-width: 480px)
+and (min-device-width: 280px) 
+and (max-device-width: 400px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
     :root {
-        font-size: 8px;
+        font-size: 9px;
+    }
+
+    .buttons-container {
+        width: 90%;
+        padding: 0;
+    }
+}
+
+@media only screen 
+and (min-device-width: 400px) 
+and (max-device-width: 600px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    :root {
+        font-size: 12px;
     }
 
     .buttons-container {
