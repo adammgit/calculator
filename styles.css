@@ -24,20 +24,36 @@ body {
     left: 50%;
     padding: 0.6em;
     transform: translate(-50%, -50%);
+    width: 30em;
     border: 2px solid #b1b1b1;
     border-radius: 0.3em;
     background-color: whitesmoke;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media only screen 
+and (min-device-width: 300px) 
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    :root {
+        font-size: 8px;
+    }
+
+    .buttons-container {
+        width: 82%;
+        padding: 0;
+    }
+}
+
 .display {
-    padding: 0 0 0 1em;
+    padding: 0 0 0 0.3em;
     border: 1px solid #b1b1b1;
     border-radius: 0.4em;
     background-color: white;
     height: 12em;
     max-height: 30%;
-    max-width: 27em;
+    max-width: 100%;
     overflow: auto;
 }
 
@@ -53,6 +69,7 @@ body {
 }
 
 input {
+    color: #01631f;
     font-size: 2em;
     letter-spacing: 0.2rem;
     caret-color: black;
@@ -77,21 +94,20 @@ input[type=text] {
 }
 
 .buttons-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 1em;
-}
-
-.num-op-container {
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 4em);
     grid-template-rows: 1fr 1fr 1fr 1fr;
     column-gap: 0.2em;
     row-gap: 0.2em;
+    justify-content: center;
+    justify-items: center;
+    padding: 1em;
 }
 
 button {
-    font-size: 2.5em;
+    width: 100%;
+    font-size: 2.2em;
     font-weight: 700;
     border: 0;
     padding: 0.3em;
@@ -101,7 +117,6 @@ button {
 
 .num-button {
     background-color: #b1b1b1;
-    width: 1.8em;
     color: rgb(56, 56, 56);
 }
 
@@ -116,7 +131,6 @@ button {
 
 .ctrl {
     background-color: #cccccc;
-    width: 1.8em;
 }
 
 .ctrl:hover {
@@ -139,7 +153,6 @@ button {
 .calculation {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     overflow: auto;
     border-bottom: 1px solid #cccccc;
 }
@@ -156,33 +169,34 @@ button {
 }
 
 .calc-text {
-    font-size: 1.5em;
+    font-size: 1.3em;
     letter-spacing: 0.3rem;
-    word-wrap: normal;
+    word-wrap: break-word;
+    max-width: 90%;
 }
 
-.use-out-but {
-    font-size: 1.3em;
-    font-weight: 700;
-    border: 0;
-    background: none;
+.reuse {
+    font-size: 1.8em;
+    font-weight: 500;
     padding: 0.3em;
     cursor: pointer;
-    outline: none;
     color: #09a037;
+    top: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
 }
-
-.use-out-but:active {
-    color: #08862e;
+.reuse:active {
+    color: #057928;
 }
 
 .material-symbols-outlined {
     font-size: 2.5em;
     font-weight: 400;
     background-color: #cccccc;
-    width: 1.8em;
+    width: 100%;
     padding: 0.3em;
     cursor: pointer;
+    color: rgb(56, 56, 56);
 }
 
 .material-symbols-outlined {
