@@ -191,15 +191,13 @@ button {
 }
 
 .reuse {
-    font-size: 1.8em;
+    font-size: 1.4em;
     font-weight: 500;
     margin: auto 0;
     padding: 0.3em;
     cursor: pointer;
     color: #09a037;
     top: 0.9em;
-    white-space: nowrap;
-    overflow: hidden;
 }
 .reuse:active {
     color: #057928;

@@ -210,13 +210,12 @@ class Calculator{
         const calcElem = document.createElement("div")
         calcElem.className = "calculation"
         calcElem.innerHTML = `<span class="calc-text">${this.state.calculations.peek().input + "=" + this.state.calculations.peek().output}</span>
-                                <span
+                                <i
                                     id=${this.state.calculations.peek().output}
-                                    class="reuse"
+                                    class="reuse fa-solid fa-arrows-spin"
                                     onclick="window.calculator.reuseOutput(event.target.id)"
                                 >
-                                    ♻
-                                </span>
+                                </i>
         `
         display.insertBefore(calcElem, input)
         this.focusDisplay()
