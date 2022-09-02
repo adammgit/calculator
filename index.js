@@ -4,7 +4,7 @@
 const display = document.querySelector(".display")
 const input = document.querySelector("[data-displayInput]")
 const number = document.querySelectorAll("[data-number]")
-const oper = document.querySelectorAll("[data-operation]")
+const operators = document.querySelectorAll("[data-operation]")
 const parenthesis = document.querySelector("[data-parenthesis]")
 const clear = document.querySelector("[data-clear]")
 const equals = document.querySelector("[data-equals]")
@@ -35,7 +35,7 @@ class Stack {
     
     /* check if the stack is empty */
     isEmpty(){
-       return this.items.length == 0
+       return this.items.length === 0
     }
    
     /* the size of the stack */
@@ -67,11 +67,9 @@ class Calculator{
         this.focusDisplay()
 
         /* set event listeners for keys */
-        document.addEventListener("keypress", (event) => {
+        document.addEventListener("keyup", (event) => {
             if (event.key === "Enter"){
                 this.calculate()
-            } else if (event.key === 8){
-                this.undo()
             }
         })
 
@@ -89,29 +87,29 @@ class Calculator{
         /* listen to clicks on numbers, update input and validate */
         number.forEach((num) => {
             num.addEventListener("click", () => {
-                input.value += num.innerText
-                this.state.currentInput += num.innerText
+                input.value += num.dataset.number
+                this.state.currentInput += num.dataset.number
                 this.validateInput()
             })
         })
 
         /* listen to clicks on operation and "." buttons and validate */
-        oper.forEach((op) => {
+        operators.forEach((op) => {
             op.addEventListener("click", () => {
 
                 /* for the final expression to be evaluated "x" and "÷"
                 have to be converted into "*" and "/" respectively */
-                if (op.innerText === "x"){
+                if (op.dataset.operation === "x"){
                     input.value += "*"
                     this.state.currentInput += "*"
-                } else if (op.innerText === "÷"){
+                } else if (op.dataset.operation === "÷"){
                     input.value += "/"
                     this.state.currentInput += "/"
 
                 /* "+" and "-" stay as they are */
                 } else {
-                    input.value += op.innerText
-                    this.state.currentInput += op.innerText
+                    input.value += op.dataset.operation
+                    this.state.currentInput += op.dataset.operation
                 }
                 this.validateInput()
             })
@@ -130,7 +128,7 @@ class Calculator{
             }
             this.validateInput()
         })
-        clear.addEventListener("click", (event) => {
+        clear.addEventListener("click", () => {
             this.clear()
         })
         equals.addEventListener("click", () => {
@@ -143,7 +141,7 @@ class Calculator{
 
     /* get the calculator to focus on the display input */
     focusDisplay(){
-        document.querySelector(".display-input").focus()
+        input.focus()
     }
 
     /* when the expression is mathematically invalid, set the text colour to red
@@ -195,7 +193,7 @@ class Calculator{
         input.value = ""
         this.state.currentInput = ""
         this.state.calculations.clear()
-        this.state.inputValid = true,
+        this.state.inputValid = true
         this.state.parenthesis = ""
         this.focusDisplay()
     }
