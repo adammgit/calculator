@@ -1,0 +1,22 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Simple Calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adammgit/calculator.git"
+  },
+  "author": "AdaMMaT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adammgit/calculator/issues"
+  },
+  "homepage": "https://github.com/adammgit/calculator#readme",
+  "devDependencies": {
+    "eslint": "^8.23.0"
+  }
+}

@@ -15,34 +15,34 @@ class Stack {
     constructor() {
         this.items = []
     }
-    
+
     /* add element to the stack */
     add(element) {
         return this.items.push(element)
     }
-    
+
     /* remove element from the stack */
     remove() {
         if(this.items.length > 0) {
             return this.items.pop()
         }
     }
-    
+
     /* view the last element */
     peek() {
         return this.items[this.items.length - 1]
     }
-    
+
     /* check if the stack is empty */
     isEmpty(){
-       return this.items.length === 0
+        return this.items.length === 0
     }
-   
+
     /* the size of the stack */
     size(){
         return this.items.length
     }
- 
+
     /* empty the stack */
     clear(){
         this.items = []
@@ -106,7 +106,7 @@ class Calculator{
                     input.value += "/"
                     this.state.currentInput += "/"
 
-                /* "+" and "-" stay as they are */
+                /* "+", "-" and "." stay as they are */
                 } else {
                     input.value += op.dataset.operation
                     this.state.currentInput += op.dataset.operation
@@ -159,6 +159,7 @@ class Calculator{
     /* check if input is valid and set input valid in state accordingly */
     validateInput() {
         try {
+            // eslint-disable-next-line no-undef
             math.evaluate(this.state.currentInput)
             this.toggleValid(true)
         } catch(error) {
@@ -173,6 +174,7 @@ class Calculator{
         if (!this.state.inputValid || !this.state.currentInput) return
 
         /* set state output variable to result of evaluation */
+        // eslint-disable-next-line no-undef
         let out = math.evaluate(this.state.currentInput)
         if (Number.isNaN(out) || !isFinite(out)){
             this.state.output = "invalid"

@@ -1,2 +1,4 @@
 backup.js
 backup.html
+.eslintrc.js
+/node_modules
